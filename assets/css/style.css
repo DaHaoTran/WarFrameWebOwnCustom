@@ -19,11 +19,11 @@ body {
 .title > img {
     width: 100%;
 }
-.characters{
+.characters-title{
     display: flex;  
     justify-content: center;
 }
-.characters > .character {
+.characters-title > .character {
     width: 15%;
     height: auto;
     animation-name: splitout;

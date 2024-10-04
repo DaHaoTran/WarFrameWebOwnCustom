@@ -11,13 +11,9 @@
 <body>
     <section class="section1">
       <div class="title">
-        <img src="assets/imgs/title.png" alt="title image">
+        <img src="assets/imgs/logo-koumei.svg" alt="title image">
       </div>
-      <div class="characters">
-        <img class="character" src="assets/imgs/characters/NovaDeluxeAoandon.png!00_wIlUVhNXau-msJGB8JRCZQ" alt="character">
-        <img class="character" src="assets/imgs/characters/Koumei.png!00_-NDjFdEA7ztzYkdGe0ws8A" alt="character">
-        <img class="character" src="assets/imgs/characters/VoltDeluxeRaijin.png!00_7oiD0A0-c7u5xTjwPi7fUg" alt="character">
-      </div>
+      <div class="characters-title"></div>
       <div class="playbutton">
         <button aria-label="playfreenow">PLAY FREE NOW</button>
       </div>
@@ -84,5 +80,8 @@
                              7
 -->
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/list.js"></script>
+<script>
+  document.getElementsByClassName("characters-title")[0].innerHTML = GetCharactersTitle();
+</script>
 </html>
