@@ -1,5 +1,6 @@
 body {
     background-color: black;
+    height: auto;
 }
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -8,6 +9,8 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    background: url(/assets/imgs/section1bg.jpg) no-repeat;
+    height: fit-content;
 }
 .title{
     display: grid;
@@ -23,6 +26,8 @@ body {
 .characters > .character {
     width: 15%;
     height: auto;
+    animation-name: splitout;
+    animation-duration: 3s;
 }
 .playbutton {
     display: flex;
@@ -39,4 +44,45 @@ body {
     text-shadow: 2px 2px 5px whitesmoke;
     box-shadow: 5px 5px 30px rgb(254, 73, 73);
     transition: all ease-in-out 0.5s;
+}
+.description{
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.description > p{
+    width: 50%;
+}
+.chevron-down{
+    display: flex;
+    justify-content: center;
+}
+.chevron-down > img{
+    animation: bounce 1.5s ease-in-out infinite;
+    filter: invert(100%) sepia(0) saturate(7500%) hue-rotate(165deg) brightness(102%) contrast(100%);
+}
+.video{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+    @keyframes splitout {
+        from { width: 5%; }
+        to { width: 15%; }
+    }
+    @keyframes bounce{
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(5px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
 }
