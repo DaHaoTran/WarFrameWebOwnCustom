@@ -158,20 +158,28 @@ body {
     opacity: 0;
     width: 100%;
 }
-.list-warframe {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.list-warframe > img{
-    width: 15%;
-}
 .section3{
     background: url(/assets/imgs/section3bg.jpg) repeat center fixed;
     height: 900px;
 }
-.section4{
-    background: url(/assets/imgs/section3bg.jpg) repeat center fixed;
+.list-warframe{
+    padding-top: 30%;
+}
+.warframe{
+    background: url(/assets/imgs/section3bg.jpg) fixed center;
+    border: 1px solid red;
+    border-radius: 5px;
+    width: 100%;
+}
+.warframe > .card-body > img {
+    width: 100%;
+    border-bottom: 2px solid white;
+}
+.warframe > .card-body > h5 {
+    color: red;
+}
+.warframe > .card-body > p {
+    color: white;
 }
 
 @media only screen and (min-width: 768px) {
