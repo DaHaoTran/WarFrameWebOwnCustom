@@ -66,18 +66,19 @@
         <h3>CHOOSE YOUR WARFRAME</h3>
         <p>With a vast array of fully customizable Warframes -- each with their own unique abilities like Invisibility, Teleport or Mind Control -- the power is yours to create the perfect assassin, tank, support or stealth Warframe.</p>
       </div>
-      <div class="list-warframe">
-        <div class="row">
-          <div class="col-md-4 col-lg-2">
-            <div class="card warframe m-3">
-              <div class="card-body text-center">
-                <img src="/assets/imgs/warframes/harrow.png" alt="warframe">
-                <h5>Harrow</h5>
-                <p>Description...</p>
-              </div>
+      <div class="row list-warframe"></div>
+      <!-- start Video Modal -->
+      <div class="modal fade warframeVideoModal" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <video class="warframeVideo lazy loaded" autoplay loop muted data-was-processed="true">
+                <source src="" type="video/webm">
+              </video>
             </div>
           </div>
         </div>
+        <!-- end Video Modal -->
       </div>
     </section>
     <section class="section5"></section>
@@ -122,5 +123,6 @@
 <script>
   document.getElementsByClassName("characters-title")[0].innerHTML = GetCharactersTitle();
   document.getElementsByClassName("abilities")[0].innerHTML = GetAblities();
+  document.getElementsByClassName("list-warframe")[0].innerHTML = GetWarframes();
 </script>
 </html>

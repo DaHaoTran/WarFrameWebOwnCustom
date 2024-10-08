@@ -27,7 +27,7 @@ body {
     width: 15%;
     height: auto;
     animation-name: splitout;
-    animation-duration: 3s;
+    animation-duration: 2s;
 }
 .playbutton {
     display: flex;
@@ -163,13 +163,14 @@ body {
     height: 900px;
 }
 .list-warframe{
-    padding-top: 30%;
+    padding-top: 10%;
 }
 .warframe{
     background: url(/assets/imgs/section3bg.jpg) fixed center;
     border: 1px solid red;
     border-radius: 5px;
     width: 100%;
+    height: 95%;
 }
 .warframe > .card-body > img {
     width: 100%;
@@ -177,9 +178,18 @@ body {
 }
 .warframe > .card-body > h5 {
     color: red;
+    width: 100%;
 }
 .warframe > .card-body > p {
     color: white;
+    width: 100%;
+}
+.warframeVideo {
+    width: 100%;
+}
+.warframeVideoModal{
+    background: none;
+    width: 100%;
 }
 
 @media only screen and (min-width: 768px) {
