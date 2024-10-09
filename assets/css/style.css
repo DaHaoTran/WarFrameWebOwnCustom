@@ -186,10 +186,14 @@ body {
 }
 .warframeVideo {
     width: 100%;
+    opacity: 1;
 }
 .warframeVideoModal{
     background: none;
     width: 100%;
+}
+.warframeVideoModal > .modal-dialog > .modal-content{
+    background: none;
 }
 
 @media only screen and (min-width: 768px) {

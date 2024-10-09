@@ -409,8 +409,8 @@ function GetWarframes() {
     var str = '';
     warframes.forEach(e => {
         str += `
-            <div class="col-md-6 col-lg-2" onlick="GetVideo(${e.video}})">
-            <div class="card warframe" data-bs-toggle="modal" data-bs-target="#videoModal">
+            <div class="col-md-6 col-lg-2">
+            <div class="card warframe" data-bs-toggle="modal" data-bs-target="#videoModal" onclick="GetVideo('${e.video}')">
               <div class="card-body text-center">
                 <img src="/assets/imgs/warframes/${e.imgPath}" alt="warframe">
                 <h5>${e.name}</h5>

@@ -394,7 +394,7 @@ console.log("Numbers of warframe: " + warframes.length);
 function GetWarframes() {
     var str = '';
     warframes.forEach(function (e) {
-        str += "\n            <div class=\"col-md-6 col-lg-2\" onlick=\"GetVideo(".concat(e.video, "})\">\n            <div class=\"card warframe\" data-bs-toggle=\"modal\" data-bs-target=\"#videoModal\">\n              <div class=\"card-body text-center\">\n                <img src=\"/assets/imgs/warframes/").concat(e.imgPath, "\" alt=\"warframe\">\n                <h5>").concat(e.name, "</h5>\n                <p>").concat(e.des, "</p>\n              </div>\n            </div>\n          </div>\n        ");
+        str += "\n            <div class=\"col-md-6 col-lg-2\">\n            <div class=\"card warframe\" data-bs-toggle=\"modal\" data-bs-target=\"#videoModal\" onclick=\"GetVideo('".concat(e.video, "')\">\n              <div class=\"card-body text-center\">\n                <img src=\"/assets/imgs/warframes/").concat(e.imgPath, "\" alt=\"warframe\">\n                <h5>").concat(e.name, "</h5>\n                <p>").concat(e.des, "</p>\n              </div>\n            </div>\n          </div>\n        ");
     });
     return str;
 }
