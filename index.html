@@ -118,11 +118,16 @@
                             LB;
                              7
 -->
-<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/js/list.js"></script>
-<script>
-  document.getElementsByClassName("characters-title")[0].innerHTML = GetCharactersTitle();
-  document.getElementsByClassName("abilities")[0].innerHTML = GetAblities();
-  document.getElementsByClassName("list-warframe")[0].innerHTML = GetWarframes();
-</script>
 </html>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./assets/js/list1.js"></script>
+<script src="./assets/js/list.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    document.getElementsByClassName("characters-title")[0].innerHTML = GetCharactersTitle();
+    var ab = await getAbilities();
+    document.getElementsByClassName("abilities")[0].innerHTML = ab;
+    var wf = await getWarframes();
+    document.getElementsByClassName("list-warframe")[0].innerHTML = wf;
+  })
+</script>

@@ -26,8 +26,6 @@ body {
 .characters-title > .character {
     width: 15%;
     height: auto;
-    animation-name: splitout;
-    animation-duration: 2s;
 }
 .playbutton {
     display: flex;
@@ -197,10 +195,6 @@ body {
 }
 
 @media only screen and (min-width: 768px) {
-    @keyframes splitout {
-        from { width: 5%; }
-        to { width: 15%; }
-    }
     @keyframes bounce{
         0% {
             transform: translateY(0);
