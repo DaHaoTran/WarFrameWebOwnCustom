@@ -1,6 +1,7 @@
 body {
     background-color: black;
     height: auto;
+    width: 100%;
 }
 html{
     scroll-behavior: smooth;
@@ -215,6 +216,7 @@ html{
 }
 .section6{
     background: url(/assets/imgs/section3bg.jpg) fixed center;
+    width: 100%;
 }
 .section6 > .earth {
     display: flex;
@@ -289,6 +291,9 @@ footer{
         animation-delay: 8.5s;
         animation-iteration-count: infinite;
     }
+    .section7 > video{
+        width: 90%;
+    }
 }
 @media only screen and (max-width: 767px) {
     .section2{
@@ -299,7 +304,7 @@ footer{
         grid-template-areas: 'koume' 'abilities';
     }
     .ability{
-        width: 110%;
+        width: 100%;
     }
     .dicel{
         visibility: collapse;
@@ -334,6 +339,9 @@ footer{
     }
     .section8{
         visibility: collapse;
+        width: 0;
+    }
+    video{
         width: 0;
     }
 }

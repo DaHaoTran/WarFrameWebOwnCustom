@@ -14,3 +14,19 @@ function GetCharactersTitle() {
 function GetVideo(video) {
     document.getElementsByClassName("warframeVideo")[0].setAttribute("src", video);
 }
+
+window.addEventListener('scroll', function() {
+    const section5 = document.querySelector('.section5');
+    const part1 = document.querySelector('.part1');
+    const section5Top = section5.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (section5Top < windowHeight && section5Top > 0) {
+        const moveDistance = 100 - (100 * (windowHeight - section5Top) / windowHeight); // Adjusting the speed of movement
+        part1.style.left = `${moveDistance}px`;
+    } else if (section5Top <= 0) {
+        part1.style.left = '0px';
+    } else {
+        part1.style.left = '100px';
+    }
+});
