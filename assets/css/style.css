@@ -1,7 +1,9 @@
 body {
     background-color: black;
     height: auto;
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 html{
     scroll-behavior: smooth;
@@ -292,7 +294,7 @@ footer{
         animation-iteration-count: infinite;
     }
     .section7 > video{
-        width: 90%;
+        width: 100%;
     }
 }
 @media only screen and (max-width: 767px) {
