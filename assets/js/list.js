@@ -63,30 +63,122 @@ function getAbilities() {
         });
     });
 }
+var warframes = [];
+var skip = 0;
+var take = 18;
 function getWarframes() {
     return __awaiter(this, void 0, void 0, function () {
-        var str, warframes;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0:
-                    str = "";
-                    return [4 /*yield*/, fetch(url + 'warframes')
-                            .then(function (response) {
-                            if (response.ok == false)
-                                throw Error(response.statusText);
-                            return response.json();
-                        })
-                            .then(function (data) {
-                            console.log(data);
-                            return data;
-                        })];
+                case 0: return [4 /*yield*/, fetch(url + 'warframes')
+                        .then(function (response) {
+                        if (response.ok == false)
+                            throw Error(response.statusText);
+                        return response.json();
+                    })
+                        .then(function (data) {
+                        console.log(data);
+                        return data;
+                    })];
                 case 1:
                     warframes = _a.sent();
-                    warframes.forEach(function (e) {
-                        str += "\n        <div class=\"col-md-6 col-lg-2\">\n            <div class=\"card warframe\" data-bs-toggle=\"modal\" data-bs-target=\"#videoModal\" onclick=\"GetVideo('".concat(e.video, "')\">\n            <div class=\"card-body text-center\">\n                <img src=\"/assets/imgs/warframes/").concat(e.imgPath, "\" alt=\"warframe\">\n                <h5>").concat(e.name, "</h5>\n                <p>").concat(e.des, "</p>\n            </div>\n            </div>\n        </div>\n        ");
-                    });
-                    return [2 /*return*/, str];
+                    return [2 /*return*/, LoadWarframes()];
             }
         });
     });
+}
+function LoadWarframes() {
+    var str = "";
+    warframes.slice(skip, skip + take).forEach(function (e) {
+        str += "\n        <div class=\"col-md-6 col-lg-2\">\n            <div class=\"card warframe\" data-bs-toggle=\"modal\" data-bs-target=\"#videoModal\" onclick=\"GetVideo('".concat(e.video, "')\">\n            <div class=\"card-body text-center\">\n                <img src=\"/assets/imgs/warframes/").concat(e.imgPath, "\" alt=\"warframe\">\n                <h5>").concat(e.name, "</h5>\n                <p>").concat(e.des, "</p>\n            </div>\n            </div>\n        </div>\n        ");
+    });
+    return str;
+}
+function Next(classname, numberPage) {
+    var value = 18 * numberPage;
+    console.log("value: " + value);
+    skip = value;
+    document.getElementsByClassName(classname)[0].innerHTML = LoadWarframes();
+}
+function Prev(classname, numberPage) {
+    var value = numberPage * 18;
+    console.log("value: " + value);
+    skip = value;
+    document.getElementsByClassName(classname)[0].innerHTML = LoadWarframes();
+}
+function Change(event, classname) {
+    var _a, _b, _c;
+    if (event == 0) {
+        var pagination = (_a = document.querySelector('.pagination')) === null || _a === void 0 ? void 0 : _a.querySelectorAll('.page-item');
+        if (pagination != null || pagination != '' || pagination != undefined) {
+            for (var i = 0; i < pagination.length; i++) {
+                if (pagination[i].classList.contains('active')) {
+                    if (i >= 2) {
+                        pos = i;
+                        pagination[i].classList.remove('active');
+                        pagination[i - 1].classList.add('active');
+                        Prev(classname, i - 2);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    else if (event == null) {
+        var pagination = (_b = document.querySelector('.pagination')) === null || _b === void 0 ? void 0 : _b.querySelectorAll('.page-item');
+        if (pagination != null || pagination != '' || pagination != undefined) {
+            for (var i = 0; i < pagination.length; i++) {
+                if (pagination[i].classList.contains('active')) {
+                    if (i + 2 < pagination.length) {
+                        pos = i;
+                        pagination[i].classList.remove('active');
+                        pagination[i + 1].classList.add('active');
+                        Next(classname, i);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    else {
+        var value = parseInt(event.target.innerHTML);
+        var pos = 0;
+        if (skip / value - 1 != 18) {
+            var pagination = (_c = document.querySelector('.pagination')) === null || _c === void 0 ? void 0 : _c.querySelectorAll('.page-item');
+            if (pagination != null || pagination != '' || pagination != undefined) {
+                for (var i = 0; i < pagination.length; i++) {
+                    if (pagination[i].classList.contains('active')) {
+                        pos = i;
+                        pagination[i].classList.remove('active');
+                        break;
+                    }
+                }
+            }
+            pagination[value].classList.add('active');
+            if (pos < value) {
+                Next(classname, value - 1);
+            }
+            else if (pos > value) {
+                Prev(classname, value - 1);
+            }
+        }
+    }
+}
+function GetPaginaButton() {
+    var str = "";
+    str += "<li class=\"page-item\">\n              <a class=\"page-link\" aria-label=\"Previous\" onclick=\"Change(0, 'list-warframe')\">\n                <span aria-hidden=\"true\">&laquo;</span>\n              </a>\n            </li>";
+    var pagiNum = warframes.length / 18;
+    if (warframes.length % 18 != 0) {
+        pagiNum += 1;
+    }
+    for (var i = 1; i <= pagiNum; i++) {
+        if (i == 1) {
+            str += "<li class=\"page-item active\"><a class=\"page-link\" onclick=\"Change(event, 'list-warframe')\">".concat(i, "</a></li>");
+        }
+        else {
+            str += "<li class=\"page-item\"><a class=\"page-link\" onclick=\"Change(event, 'list-warframe')\">".concat(i, "</a></li>");
+        }
+    }
+    str += "<li class=\"page-item\">\n              <a class=\"page-link\" aria-label=\"Next\" onclick=\"Change(null, 'list-warframe')\">\n                <span aria-hidden=\"true\">&raquo;</span>\n              </a>\n            </li>";
+    return str;
 }

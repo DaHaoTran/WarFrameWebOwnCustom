@@ -233,6 +233,17 @@ html{
 footer{
     color: white;
 }
+.pagination > .page-item{
+    width: 50px;
+}
+.pagination > .page-item > .page-link{
+    background: url(/assets/imgs/section3bg.jpg) fixed center;
+    border: 1px solid red;
+    color: white;
+} 
+.pagination > .active > .page-link{
+    color: red;
+}
 
 @media only screen and (min-width: 768px) {
     @keyframes bounce{

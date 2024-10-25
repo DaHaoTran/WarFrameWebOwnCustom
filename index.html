@@ -67,6 +67,11 @@
         <p>With a vast array of fully customizable Warframes -- each with their own unique abilities like Invisibility, Teleport or Mind Control -- the power is yours to create the perfect assassin, tank, support or stealth Warframe.</p>
       </div>
       <div class="row list-warframe"></div>
+      <div class="d-flex justify-content-center mt-3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination"></ul>
+        </nav>
+      </div>
       <!-- start Video Modal -->
       <div class="modal fade warframeVideoModal" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -170,5 +175,6 @@
     document.getElementsByClassName("abilities")[0].innerHTML = ab;
     var wf = await getWarframes();
     document.getElementsByClassName("list-warframe")[0].innerHTML = wf;
+    document.getElementsByClassName('pagination')[0].innerHTML = GetPaginaButton();
   })
 </script>
